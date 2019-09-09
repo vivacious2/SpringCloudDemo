@@ -12,19 +12,23 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PreRequestFilter extends ZuulFilter {
+
+    // 过滤类型
+    // 发生在请求之前
     @Override
     public String filterType() {
         return FilterConstants.PRE_TYPE;
     }
+
 
     @Override
     public int filterOrder() {
         return 0;
     }
 
+    // 是否启用当前过滤器
     @Override
     public boolean shouldFilter() {
-        // 是否启用当前过滤器
         return true;
     }
 

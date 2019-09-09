@@ -13,16 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author ：songxuanlong
  * @date ：Created in 2019/8/12 22:38
- * @description：自定义过滤器，应答请求时间
+ * @description：自定义过滤器，请求响应时间
  */
 @Slf4j
 @Component
 public class AccessLogFilter  extends ZuulFilter {
+
+    // 发生在请求之后
     @Override
     public String filterType() {
         return FilterConstants.POST_TYPE;
     }
 
+    // 在post响应之前，所以是-1
     @Override
     public int filterOrder() {
         return FilterConstants.SEND_RESPONSE_FILTER_ORDER-1;
